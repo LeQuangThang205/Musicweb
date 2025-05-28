@@ -1,8 +1,11 @@
+
+# MusicManager
+
 # Hệ Thống Quản Lý Bài Hát, Nghệ Sĩ
 
 ## Được Phát Triển Bởi:
-LÊ QUANG THẮNG
-HOÀNG VĂN BẮC
+LÊ QUANG THẮNG 23010236,
+HOÀNG VĂN BẮC 22010356
 
 ## Mô Tả Ứng Dụng
 Hệ thống quản lý nhạc là một ứng dụng web giúp quản lý người dùng, nghệ sĩ, bài hát, thể loại, danh sách phát một cách hiệu quả. Ứng dụng cung cấp các chức năng CRUD, tìm kiếm, sắp xếp cho các đối tượng.
@@ -18,7 +21,7 @@ Hệ thống quản lý nhạc là một ứng dụng web giúp quản lý ngư�
 Dự án sử dụng các công nghệ sau:
 - **Laravel Framework** (cập nhật lên phiên bản mới nhất)
 - **PHP 8.x**
-- **MySQL - Aiven**
+- **MySQL - PhpAdmin**
 - **DataTables với jQuery**
 - **AdminLTE 3.x** (giao diện admin)
 - **HTML, CSS, JavaScript**
@@ -26,9 +29,6 @@ Dự án sử dụng các công nghệ sau:
 - **Laravel Service Pattern**
 - **Laravel Events & Listeners**
 
-## Quá Trình Phát Triển Phần Mềm
-### Sơ Đồ Khối (UML) - Cấu trúc Database
-![Untitled diagram-2025-02-24-085155](https://github.com/user-attachments/assets/400b2703-192c-4873-9bbd-6d5e2f4d6b6b)
 
 ### Sơ Đồ Chức Năng (Sơ Đồ Thuật Toán)
 ```mermaid
@@ -64,9 +64,9 @@ CREATE DATABASE defaultdb;
 ```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
-DB_PORT=19017
-DB_DATABASE=defaultdb
-DB_USERNAME=avnadmin
+DB_PORT=3306
+DB_DATABASE=musicweb_management
+DB_USERNAME=root
 DB_PASSWORD=
 ```
 
@@ -95,3 +95,4 @@ php artisan serve
 - **API Resources** chuẩn hóa dữ liệu trả về.
 - **Events & Listeners** xử lý các tác vụ phụ không đồng bộ.
 
+>>>>>>> b1b2036 (commit)

@@ -19,6 +19,7 @@ Route::get('/', function () {
 
 Route::prefix('admin')->middleware(['auth', \App\Http\Middleware\AdminMiddleware::class])->group(function () {
     Route::get('/home', [DashboardController::class, 'index'])->name('home');
+    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::resource('users', UserController::class);
     Route::resource('artists', ArtistController::class);
     Route::resource('songs', SongController::class);
