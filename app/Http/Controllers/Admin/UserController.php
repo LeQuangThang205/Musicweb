@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
+use App\Models\Song;
 
 class UserController extends Controller
 {
@@ -177,5 +178,10 @@ class UserController extends Controller
     public function show(User $user)
     {
         return view('admin.users.show', compact('user'));
+    }
+    public function home() {
+        //$songs = Song::all(); // Lấy tất cả bài hát
+        $songs = Song::with('artist')->get(); // nạp sẵn dữ liệu artist
+        return view('user.home', compact('songs')); // Truyền vào view
     }
 }

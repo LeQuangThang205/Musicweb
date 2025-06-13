@@ -16,9 +16,9 @@ Auth::routes();
 Route::get('/', function () {
     return redirect('/login');
 });
-
+Route::get('user/home', [UserController::class, 'home'])->name('home');
 Route::prefix('admin')->middleware(['auth', \App\Http\Middleware\AdminMiddleware::class])->group(function () {
-    Route::get('/home', [DashboardController::class, 'index'])->name('home');
+    Route::get('/admin', [DashboardController::class, 'index'])->name('admin');
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::resource('users', UserController::class);
     Route::resource('artists', ArtistController::class);
@@ -31,4 +31,6 @@ Route::prefix('admin')->middleware(['auth', \App\Http\Middleware\AdminMiddleware
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
 ?>
