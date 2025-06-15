@@ -36,44 +36,22 @@ body {
 }
 
 .menu li {
+  margin-bottom: 12px; /* Tăng khoảng cách giữa các menu item */
+}
+
+.menu li a {
   padding: 10px 0;
   color: #bbb;
   cursor: pointer;
+  text-decoration: none; /* ✅ Bỏ gạch chân */
+  display: block;
+  transition: color 0.2s;
 }
 
-.menu .active {
+.menu li a:hover,
+.menu li a.active {
   color: #fff;
   font-weight: bold;
-}
-
-.live {
-  background-color: red;
-  color: #fff;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 10px;
-  margin-left: 5px;
-}
-
-.login-box {
-  background-color: #3e2f57;
-  padding: 15px;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.login-box p {
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-
-.login-box button {
-  background-color: #a64bfd;
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 20px;
-  cursor: pointer;
 }
 
 .main {
@@ -117,28 +95,4 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.section {
-  margin-top: 30px;
-}
-
-.section h2 {
-  font-size: 20px;
-  margin-bottom: 15px;
-}
-
-.song-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.song-item {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  background-color: #2f2739;
-  padding: 10px;
-  border-radius: 10px;
 }

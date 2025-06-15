@@ -10,12 +10,10 @@
     <aside class="sidebar">
       <div class="logo">🎵 Zing <span>mp3</span></div>
       <ul class="menu">
-        <li>🎧 Thư Viện</li>
+        <li><a href="{{ route('home') }}">🎧 Trang Chủ</a></li>
+
+        <li><a href="{{ route('songs.favorite.list') }}">❤️ Yêu thích</a></li>
       </ul>
-      <div class="login-box">
-        <p>Đăng nhập để khám phá playlist dành riêng cho bạn</p>
-        <button>Đăng Nhập</button>
-      </div>
     </aside>
 
     <main class="main">
@@ -26,6 +24,9 @@
       </div>
       <div>
         @yield('contend')
+      </div>
+      <div>
+        @yield('content')
       </div>
 
     </main>

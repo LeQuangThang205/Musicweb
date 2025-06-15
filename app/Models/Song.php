@@ -34,4 +34,9 @@ class Song extends Model
     {
         return $this->belongsToMany(Playlist::class);
     }
+    public function favoritedBy()
+    {
+    return $this->belongsToMany(User::class, 'favorite_songs')->withTimestamps();
+    }
+
 }

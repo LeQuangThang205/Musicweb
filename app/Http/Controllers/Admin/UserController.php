@@ -58,6 +58,7 @@ class UserController extends Controller
         $users = ($perPage === 'all') ? $query->get() : $query->paginate((int) $perPage)->appends($request->all());
 
         return view('admin.users.index', compact('users'));
+        
     }
 
     public function create()

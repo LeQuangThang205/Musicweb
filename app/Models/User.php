@@ -35,4 +35,9 @@ class User extends Authenticatable
     {
         return $this->hasRole('user');
     }
+    public function favorites()
+    {
+    return $this->belongsToMany(Song::class, 'favorite_songs')->withTimestamps();
+    }
+
     }

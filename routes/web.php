@@ -16,7 +16,10 @@ Auth::routes();
 Route::get('/', function () {
     return redirect('/login');
 });
+
 Route::get('user/home', [UserController::class, 'home'])->name('home');
+
+
 Route::prefix('admin')->middleware(['auth', \App\Http\Middleware\AdminMiddleware::class])->group(function () {
     Route::get('/admin', [DashboardController::class, 'index'])->name('admin');
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
@@ -25,6 +28,12 @@ Route::prefix('admin')->middleware(['auth', \App\Http\Middleware\AdminMiddleware
     Route::resource('songs', SongController::class);
     Route::resource('genres', GenreController::class);
     Route::resource('playlists', PlaylistController::class);
+    
+
+});
+Route::middleware('auth')->group(function () {
+    Route::post('/songs/{id}/favorite', [SongController::class, 'toggleFavorite'])->name('songs.favorite');
+    Route::get('/favorites', [SongController::class, 'favoriteList'])->name('songs.favorite.list');
 });
 
 // Route login & logout

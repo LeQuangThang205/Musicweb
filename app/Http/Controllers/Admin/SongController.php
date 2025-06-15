@@ -156,4 +156,26 @@ class SongController extends Controller
     {
         return view('admin.songs.show', compact('song'));
     }
+    public function toggleFavorite($id)
+{
+    $user = auth()->user();
+    $song = Song::findOrFail($id);
+
+    if ($user->favorites()->where('song_id', $id)->exists()) {
+        $user->favorites()->detach($id);
+    } else {
+        $user->favorites()->attach($id);
+    }
+
+    return back();
+}
+
+    public function favoriteList()
+    {
+    $user = auth()->user();
+    $songs = $user->favorites()->with('artist')->get();
+
+    return view('user.favorites', compact('songs'));
+    }
+
 }
