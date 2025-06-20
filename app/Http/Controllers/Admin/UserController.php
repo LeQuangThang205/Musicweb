@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use App\Models\Song;
+use App\Models\Artist;
+
 
 class UserController extends Controller
 {
@@ -185,4 +187,19 @@ class UserController extends Controller
         $songs = Song::with('artist')->get(); // nạp sẵn dữ liệu artist
         return view('user.home', compact('songs')); // Truyền vào view
     }
+    public function artists() {
+    $artists = Artist::all();
+    return view('user.artists', compact('artists'));
+    }
+    public function chart()
+{
+    $songs = Song::with('artist')
+        ->orderByDesc('listens') // hoặc ->orderByDesc('likes') nếu bạn muốn theo lượt thích
+        ->take(10) // Lấy top 10
+        ->get();
+
+    return view('user.chart', compact('songs'));
+}
+
+
 }

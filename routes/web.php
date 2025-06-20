@@ -17,7 +17,19 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-Route::get('user/home', [UserController::class, 'home'])->name('home');
+//Route::get('user/home', [UserController::class, 'home'])->name('home');
+Route::prefix('user')->middleware(['auth'])->group(function () {
+    // Trang chủ người dùng
+    Route::get('/home', [UserController::class, 'home'])->name('home');
+
+    // Trang danh sách ca sĩ
+    Route::get('/artists', [UserController::class, 'artists'])->name('user.artists');
+
+    // Thêm route khác nếu cần
+});
+Route::get('/chart', [UserController::class, 'chart'])->name('user.chart');
+
+
 
 
 Route::prefix('admin')->middleware(['auth', \App\Http\Middleware\AdminMiddleware::class])->group(function () {

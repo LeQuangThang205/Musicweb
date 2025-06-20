@@ -196,4 +196,5 @@ class ArtistController extends Controller
         $artist->loadCount('songs'); // Đếm số bài hát
         return view('admin.artists.show', compact('artist'));
     }
+
 }
